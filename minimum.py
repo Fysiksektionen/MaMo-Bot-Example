@@ -32,8 +32,8 @@ async def main():
     driver.client.post(
         '/posts',
         data=json.dumps({
-            "channel_id": "717mezsoofdhbpc7pijgih9t4r",
-            "message": "Hello",
+            "channel_id": "fihtswmigbd68y8a1rway3b7dw",
+            "message": "Hello world!",
         })
 
     )
@@ -44,6 +44,8 @@ async def main():
         for i in range(10):
             res = json.loads(await ws.recv())
             print(res)
+            if 'event' in res:
+                print(res['event'])
 
 
 run(main())
